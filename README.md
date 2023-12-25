@@ -1,2 +1,2 @@
 # terraproject-aws
-Terraform project to provisioning resources in AWS
+This project aims to provide resources for an application on AWS
