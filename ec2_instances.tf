@@ -18,5 +18,5 @@ resource "aws_instance" "dev4" {
     Name = "dev4"
   }
   vpc_security_group_ids = ["${aws_security_group.allow_ssh-us-east-2.id}"]
-  depends_on = [aws_s3_bucket.terrabucket]
+  depends_on = [aws_s3_bucket.terrabucket, aws_dynamodb_table.basic-dynamodb-table]
 }
