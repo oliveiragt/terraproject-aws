@@ -1,6 +1,3 @@
-variable "your_ip_address" {
-  default = ""
-}
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "Allow SSH"

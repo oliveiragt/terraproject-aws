@@ -1,6 +1,6 @@
 resource "aws_instance" "dev" {
   count         = 3
-  ami           = "ami-06aa3f7caf3a30282"
+  ami           = var.amis["ubuntu_us_east_1"]
   instance_type = "t2.micro"
   key_name      = "terrakey"
   tags = {
@@ -11,7 +11,7 @@ resource "aws_instance" "dev" {
 
 resource "aws_instance" "dev4" {
   provider = aws.us-east-2
-  ami           = "ami-07b36ea9852e986ad"
+  ami           = var.amis["ubuntu_us_east_2"]
   instance_type = "t2.micro"
   key_name      = "terrakey"
   tags = {
