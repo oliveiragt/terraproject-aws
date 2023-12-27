@@ -7,7 +7,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["${var.your_ip_address}"]
+    cidr_blocks      = var.cdir_allowed_ips
   }
   egress {
     description = "Allow all ports in egress"
@@ -29,7 +29,7 @@ resource "aws_security_group" "allow_ssh-us-east-2" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["${var.your_ip_address}"]
+    cidr_blocks      = var.cdir_allowed_ips
   }
   egress {
     description = "Allow all ports in egress"

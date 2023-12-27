@@ -6,7 +6,8 @@ variable "amis" {
     }
 }
 
-variable "your_ip_address" {
-    type = string
-    default = "PROVIDE YOUR IP"
+variable "cdir_allowed_ips" {
+    type = list(string)
+    default = ["INSERT LIST OF IPS"]
 }
+
