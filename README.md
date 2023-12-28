@@ -1,66 +1,64 @@
 
 # terraproject-aws
+Based on the Terraform course from Alura, I created this repository to use as a reference for technical knowledge of the tool.
+The files created will provision infrastructure on AWS in an automated manner. Key components include definitions for EC2 instances, DynamoDB tables, and S3 buckets. Variables are used to customize settings, such as AMIs and CIDR blocks. The focus is on modularity and flexibility to facilitate the deployment and management of resources on AWS.
 
-Baseado no curso de Terraform da Alura, criei este repositório para usar como referência de conhecimento técnico da ferramenta.
-Os arquivos criados irão provisionar infraestrutura na AWS de forma automatizada. Os principais componentes incluem definições de instâncias EC2, tabelas DynamoDB, e buckets S3. Variáveis são usadas para personalizar configurações, como AMIs e blocos CIDR. O foco é na modularidade e flexibilidade para facilitar a implantação e gestão de recursos na AWS.
+## Requirements
 
-## Requisitos
+To execute the following steps, it is expected that you have already created an AWS account, and this account is logged into your machine through AWS CLI or through the use of environment variables.
 
-Para executar os passos a seguir é esperado que você já tenha criado uma conta na AWS e esta conta esteja logada em sua máquina através do AWS CLI ou através do uso de variáveis de ambiente.
+It is also expected that Terraform is installed on your machine.
 
-Também é esperado que o Terraform esteja instalado em sua máquina.
+You will need to generate a pair of keys, one public and one private, to be used for SSH connection. Set the name as "terrakey" or modify the references in the code.
 
-Será necessário gerar um par de chaves, uma pública e outra privada para ser utilizada na conexão SSH, defina o nome como "terrakey" ou altere as referências no código.
+[Terraform Installation Documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-[Documentação para instalação do Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+[AWS CLI Installation Documentation](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html)
 
-[Documentação para instalação do AWS CLI](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html)
+[Key Pair Creation Documentation](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/create-key-pairs.html)
 
-[Documentação para criar par de chaves](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/create-key-pairs.html)
+Running Locally
 
-## Executando localmente
-
-Clone o projeto
+Clone the project
 
 ```bash
   git clone git@github.com:oliveiragt/terraproject-aws.git
 ```
 
-Entre no diretório do projeto
+Enter the project directory
 
 ```bash
   cd terraproject-aws
 ```
 
-Inicie o Terraform
+Initialize Terraform
 
 ```bash
   terraform init
 ```
 
-Execute o plan para que a ferramenta avalie quais recursos serão provisionados
+Execute the plan so that the tool evaluates which resources will be provisioned
 
 ```bash
   terraform plan
 ```
 
-Você irá obter um erro pois não especificou um IP na variável "cdir_allowed_ips" no arquivo vars.tf
+You will get an error because you did not specify an IP in the "cdir_allowed_ips" variable in the vars.tf file.
 
-Para corrigir basta ir no arquivo vars.tf e passar seu IP com /32 para que o Security Group que irá permitir SSH nas instâncias EC2 permita seu acesso, é possível inserir uma lista de IPs caso deseje.
+To fix it, simply go to the vars.tf file and pass your IP with /32 so that the Security Group that allows SSH to EC2 instances allows your access. You can insert a list of IPs if desired.
 
-Verifique qual seu IP [aqui](https://meuip.com.br/).
+Check your IP [here](https://meuip.com.br/).
 
-Após inserir o IP no arquivo vars.tf, rode novamente o comando para planejar as alterações.
+After inserting the IP in the vars.tf file, run the command again to plan the changes.
 
 ```bash
   terraform plan
 ```
 
-Após analisar todas as alterações que serão implementadas, execute o comando para aplicar as alterações.
+After reviewing all the changes that will be implemented, execute the command to apply the changes.
 
 ```bash
   terraform apply
 ```
 
-Tome liberdade para alterar os parâmetros e analisar o comportamento da ferramenta.
-
+Feel free to modify the parameters and analyze the behavior of the tool.
