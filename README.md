@@ -17,7 +17,7 @@ You will need to generate a pair of keys, one public and one private, to be used
 
 [Key Pair Creation Documentation](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/create-key-pairs.html)
 
-Running Locally
+# Running Locally
 
 Clone the project
 
