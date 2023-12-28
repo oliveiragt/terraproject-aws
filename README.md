@@ -23,7 +23,7 @@ Será necessário gerar um par de chaves, uma pública e outra privada para ser 
 Clone o projeto
 
 ```bash
-  git clone https://github.com/oliveiragt/terraproject-aws
+  git clone git@github.com:oliveiragt/terraproject-aws.git
 ```
 
 Entre no diretório do projeto
